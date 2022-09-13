@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         val guess2InputCheck = findViewById<TextView>(R.id.guess2InputCheck)
         val guess3Input = findViewById<TextView>(R.id.guess3Input)
         val guess3InputCheck = findViewById<TextView>(R.id.guess3InputCheck)
+        val answer = findViewById<TextView>(R.id.answer)
         guessButton.setOnClickListener {
             when (counter) {
                 1 -> {
@@ -52,6 +53,8 @@ class MainActivity : AppCompatActivity() {
                     //Need to grey out and disable guess button and have a reset button appear.
                     guessButton.isEnabled = false
                     resetButton.visibility = View.VISIBLE
+                    answer.setText(wordToGuess)
+                    answer.visibility = View.VISIBLE
                 }
             }
 
@@ -71,6 +74,7 @@ class MainActivity : AppCompatActivity() {
             wordToGuess = word.getRandomFourLetterWord()
             input.setText("")
             resetButton.visibility = View.INVISIBLE
+            answer.visibility = View.INVISIBLE
         }
 
     }
